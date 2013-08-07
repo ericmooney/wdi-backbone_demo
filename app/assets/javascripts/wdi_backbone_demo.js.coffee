@@ -3,7 +3,9 @@ window.WdiBackboneDemo =
   Collections: {}
   Views: {}
   Routers: {}
-  initialize: -> alert 'Hello from Backbone!'
+  initialize: ->
+    new WdiBackboneDemo.Routers.Questions
+    Backbone.history.start()
 
 $(document).ready ->
   WdiBackboneDemo.initialize()
