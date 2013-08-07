@@ -1,6 +1,7 @@
 WdiBackboneDemo::Application.routes.draw do
-  resources :questions
-
+  scope "api" do
+    resources :questions
+  end
 
   root :to => "pages#index"
 end
