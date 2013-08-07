@@ -1,4 +1,8 @@
 <h1>Questions</h1>
 
 
-<%= @questions %>
+<ul>
+  <% for question in @questions.models: %>
+    <li><%= question.get('content') %></li>
+  <% end %>
+</ul>
