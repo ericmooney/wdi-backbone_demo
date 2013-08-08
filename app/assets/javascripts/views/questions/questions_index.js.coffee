@@ -23,6 +23,19 @@ class WdiBackboneDemo.Views.QuestionsIndex extends Backbone.View
 
   createQuestion: (event) ->
     event.preventDefault()
-    @collection.create(content: $('#question_content').val())
-    $('#new_question')[0].reset() # or, we could have done $('#question_content').val("")
+
+    attributes =
+      content: $('#question_content').val()
+
+    @collection.create attributes,
+      wait:true
+      success: -> $('#new_question')[0].reset() # or, we could have done $('#question_content').val("")
+      error: (question, response) ->
+        errors = response.responseJSON.errors
+
+        for attribute, messages of errors
+          for message in messages
+            alert(message)
+
+
 
