@@ -5,7 +5,7 @@ class WdiBackboneDemo.Views.QuestionsIndex extends Backbone.View
   # initialize is needed because page loads too fast to render collection the first time
   initialize: ->
     @collection.on('reset', @render, this)
-    @collection.on('add', @render, this)
+    @collection.on('add', @appendQuestion, this)
 
   events:
     'submit #new_question': 'createQuestion'
@@ -24,3 +24,5 @@ class WdiBackboneDemo.Views.QuestionsIndex extends Backbone.View
   createQuestion: (event) ->
     event.preventDefault()
     @collection.create(content: $('#question_content').val())
+    $('#new_question')[0].reset() # or, we could have done $('#question_content').val("")
+
