@@ -18,7 +18,7 @@ class WdiBackboneDemo.Views.QuestionsIndex extends Backbone.View
     this
 
   appendQuestion: (question) ->
-    view = new WdiBackboneDemo.Views.QuestionsShow()
+    view = new WdiBackboneDemo.Views.QuestionsShow(model: question)
     $('#questions_list').append(view.render().el)
 
   createQuestion: (event) ->
