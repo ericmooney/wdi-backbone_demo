@@ -16,4 +16,4 @@ class WdiBackboneDemo.Routers.Questions extends Backbone.Router
     $('#container').html(view.render().el)
 
   show: (id) ->
-    alert("Your are showing Question #{id}")
+    alert("Your are showing Project #{id}")
