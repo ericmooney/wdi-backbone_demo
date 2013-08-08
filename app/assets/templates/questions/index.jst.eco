@@ -5,8 +5,4 @@
   <input type="submit" value="Create Question">
 </form>
 
-<ul>
-  <% for question in @questions.models: %>
-    <li><%= question.get('content') %></li>
-  <% end %>
-</ul>
+<ul id="questions_list"></ul>

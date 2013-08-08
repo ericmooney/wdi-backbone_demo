@@ -13,8 +13,13 @@ class WdiBackboneDemo.Views.QuestionsIndex extends Backbone.View
   template: JST['questions/index']
 
   render: ->
-    $(@el).html(@template(questions: @collection))
-    this #this
+    $(@el).html(@template())
+    @collection.each(@appendQuestion)
+    this
+
+  appendQuestion: (question) ->
+    view = new WdiBackboneDemo.Views.QuestionsShow()
+    $('#questions_list').append(view.render().el)
 
   createQuestion: (event) ->
     event.preventDefault()
